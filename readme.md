@@ -41,7 +41,9 @@ for d_, l_ in zip(d, l):
 plt.legend()
 plt.show()
 ```
+
 This way, bar of screen, battery, and others would be stacked with one another. 
+
 4. Use `barh` to create a horizontal bar.
 5. Pass `xerr` params to the bar function to add errors
 6. Use `invert_yaxis` or `invert_xaxis` to flip the order. The scale and data orders would inverted. This would interfere with `set_xlim` or `set_ylim` functions, as they need to be adjusted based on the left/right, top/bottom manner.
@@ -50,11 +52,16 @@ This way, bar of screen, battery, and others would be stacked with one another.
 9. Use `fmt` param in function call (especially for label-like things) to format the result. `{:.0f}` to set decimal value. `:` to state current value, `f` to state that we formatting the float/decimal digits. `.0`, dot followed by any whole number.
 
 > Read more about numbers classification in https://www.mometrix.com/academy/numbers-and-their-classifications/
-> a. Natural/Counting (1,2,3,4,5, ...): We usually count with it.
-> b. Whole Numbers (0,1,2,3, ...): Natural, including 0.
-> c. Integers (..., -3, -2, -1, 0, 1, 2, 3, ...): Positive & negative whole numbers.
-> d. Rational numbers (2/1, 0.5, 3/10, 2.957, ...): Can be expressed as the division of integers.
-> e. Irrational numbers (pi, root of 2, e): Cannot be written as a simple fraction or decimal.
-> f. Real numbers: All numbers from a to f.
-> g. Imaginary numbers: expressed as the sum of a real part and an imaginary part (i)
+|Pointer|Numbers classification|
+|---|-------|
+|a|Natural/Counting (1,2,3,4,5, ...): We usually count with it.|
+|b|Whole Numbers (0,1,2,3, ...): Natural, including 0.|
+|c|Integers (..., -3, -2, -1, 0, 1, 2, 3, ...): Positive & negative whole numbers.|
+|d|Rational numbers (2/1, 0.5, 3/10, 2.957, ...): Can be expressed as the division of integers.|
+|e|Irrational numbers (pi, root of 2, e): Cannot be written as a simple fraction or decimal.|
+|f|Real numbers: All numbers from a to f.|
+|g|Imaginary numbers: expressed as the sum of a real part and an imaginary part (i)|
+
+10. Use `constrained` layout to avoid decorations overlap. Calliing `tight_layout` would turn off constrained option.
+11. Bar chart is basically a mix & match thing that we can leverage by specifying the coordinate & length of the bar. Specify the `bottom` parameter to shift the bar upwards. Or using a shifted `x` param to simulate as if they were different, but grouped together. Pass the returned `Axes` object to the `bar_label` function to specify the label, either on the `edge` or the `center`.
 
