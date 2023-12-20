@@ -52,6 +52,8 @@ This way, bar of screen, battery, and others would be stacked with one another.
 9. Use `fmt` param in function call (especially for label-like things) to format the result. `{:.0f}` to set decimal value. `:` to state current value, `f` to state that we formatting the float/decimal digits. `.0`, dot followed by any whole number.
 
 > Read more about numbers classification in https://www.mometrix.com/academy/numbers-and-their-classifications/
+
+
 |Pointer|Numbers classification|
 |---|-------|
 |a|Natural/Counting (1,2,3,4,5, ...): We usually count with it.|
