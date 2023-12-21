@@ -66,4 +66,5 @@ This way, bar of screen, battery, and others would be stacked with one another.
 
 10. Use `constrained` layout to avoid decorations overlap. Calliing `tight_layout` would turn off constrained option.
 11. Bar chart is basically a mix & match thing that we can leverage by specifying the coordinate & length of the bar. Specify the `bottom` parameter to shift the bar upwards. Or using a shifted `x` param to simulate as if they were different, but grouped together. Pass the returned `Axes` object to the `bar_label` function to specify the label, either on the `edge` or the `center`.
+12. To draw annotation with a text pointing to specific part of the chart, use `Axes.annotate`. In simple terms, we just specify the `text` and the `target coordinate`. If an arrow is needed, pass `xytext` and `textcoords`. With them we can *shift* the text to any position that we want. The gap between our new shifted text and previously target coordinate would filled with an arrow that we can specify using `arrowprops` param. Other params like `fontsize`, `horizontalalignment` and `verticalalignment` can be used to customize more.
 
