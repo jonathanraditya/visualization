@@ -72,4 +72,38 @@ This way, bar of screen, battery, and others would be stacked with one another.
 15. We can increase the visibility of data points on the axis using `EventCollection` module in `matplotlib.collections`. This way, we can add visible vertical/horizontal bar (based on specified orientation), just like 'bleed cutting points' in printing industry.
 16. The `eventplot` chart is a unique one. I still thinking the possible use cases for this particular chart. I think, scatter plot `.plot()` can achieve the same thing (more versatile). The only exception is, this chart-type can be used to simplify recursion and provide a cleaner code.
 17. To fill a polygon, just use `.fill()` while passing x and y points. Further costumization like `facecolor`, `edgecolor`, and `linewidth` can be used. Any polygon can be filled-up. Workaround over the open-boundary, using the first & last points to connect and create a closed shape.
+18. `fill_betweenx` can be used to invert the fill area of `fill_between`. The params are identical, with a flip on x and y.
+
+## Module notes
+1. Discrete distribution as horizontal bar chart.
+Utilize `barh` along with `left` param to stack one another.
+
+The question: 
+- How to make sure they are drawn in absolute value?
+- How to draw a different data label if the one used for drawing are different with the actual data? (this one arise because of the absolute nature of the drawing)
+
+2. Costumizing dashed line styles
+Instead of using predefined styles using `ls` param, we can create our own line style.
+
+**$1^st$ option:** Get return handler after plotting with `b = ax.plot()`, then format them with function `b.set_dashes()`. Pass a list with even length. It will be interpreted as line/break/line/break/etc. sequence.
+
+**$2^nd$ option:** Using `dashes` param during `.plot()` function call. Pass a similar iterable just like on the 1st option.
+
+`dash_capstyle` and `gapcolor` are the other option that we can use to further costumize the line style.
+
+3. Lines with a ticked patheffect
+Add tick along the line. Use `path_effects` param, and pass `patheffects,withTickedStroke()` inside a iterable.
+
+4. Linestyles
+Similar to `dashes`, `linestyle` can achieve the same thing. The only difference is, linestyle provide an additional param, an offset. `(offset, (on, off, ..., ...))` instead of just an on/off sequence.
+
+5. Marker reference
+Add additional visibility to data points using various symbols. Four major categories: unfilled, filled, TeX, Paths.
+
+6. Markevery Demo
+Pass a valid value to `markevery` param during `.plot()` function call.
+Refer to https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_markevery for complete documentation.
+In simple words, you can costumize the marker by any means: every-n, start, stop, shift, specific points, T/F values, fractional spacing
+
+
 
